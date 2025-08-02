@@ -63,6 +63,8 @@ h4{ font-size: 2.8rem; margin: 0rem;}
     align-items: center;
 }
 
+/* Main, calculadora como tal */
+
 .calculadora{
     margin-top: 4rem;
     display: flex;
@@ -76,12 +78,18 @@ h4{ font-size: 2.8rem; margin: 0rem;}
     background-color: #000000;
     margin: 2rem 2rem 1rem 2rem;
     width: 95%;
-    height: 20rem;
+    height: 15rem;
     border-radius: 5rem;
+    font-size: 4rem;
     border: 3px solid rgb(255, 255, 255);
     font-size: 2rem;
     padding: 1rem;
     text-align: right;
+    color:#ffffff;
+    font-size: 4rem;         /* Tamaño grande del texto */
+    text-align: right;       /* Alinea el texto a la derecha */
+    padding-top: 9rem;
+    padding-right: 4rem;    /* Espacio interno arriba/abajo y lados */
 }
 
 .botones{
@@ -102,8 +110,21 @@ h4{ font-size: 2.8rem; margin: 0rem;}
     transition: all 0.1s ease-in-out;
 }
 
+
+.botones .important{ /* Color de los botones de borrar y de igual */
+    background-color: rgb(255, 230, 0);
+}
+
+.botones .operacion{ /*Color de los botones de operaciones*/
+    background-color: rgb(246, 239, 188);
+}
+
+.boton img{
+    margin-top: 4px;
+}
+
 .boton:hover{
-    filter: brightness(70%); /* Reduce el brillo un 10%, haciéndolo más oscuro */
+    filter: brightness(70%); /* Reduce el brillo un 30%, haciéndolo más oscuro */
 }
 
 .boton:active {
@@ -111,17 +132,6 @@ h4{ font-size: 2.8rem; margin: 0rem;}
     box-shadow: 0 2px 3px rgba(0,0,0,0.2);
 }
 
-.boton img{
-    margin-top: 4px;
-}
-
-.important{
-    background-color: rgb(255, 230, 0);
-}
-
-.operacion{
-    background-color: rgb(246, 239, 188);
-}
 .inicio__item h2, .about__item h2{
     color: white;
 }
