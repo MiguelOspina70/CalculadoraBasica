@@ -1,0 +1,127 @@
+
+/* VARIABLES GLOBALES */
+
+:root{
+    --colorPrimario: #784D3C;
+}
+
+html{
+    font-size: 62.5%;
+    box-sizing: border-box;
+    height: 100%;
+    margin: 0;
+}
+*, *:before, *:after {
+    box-sizing: inherit; /* Permite que el padding y el border se sumen al ancho y alto de los elementos */
+}
+/*usar las lineas de arriba y de abajo siempre*/
+body{
+    font-family: sans-serif;
+    background: linear-gradient(#06151e 0%,#06151e 15%, #2bc8c8);
+    background-attachment: fixed; /* Esto hace que no se repita y siga el scroll */
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-size: 1.6rem;
+    line-height: 2;
+    text-align: center;
+
+}
+
+.contenedor{
+    max-width: 120rem;
+    margin: 0 auto;
+}
+
+a{
+    text-decoration: none; /* Quita el subrayado de todos los enlaces */
+}
+
+img{
+    max-width: 100%;
+}
+
+h1{ font-size: 4.8rem; margin: 0rem;}
+h2{ font-size: 3rem; margin: 0rem;}
+h3{ font-size: 3.2rem; margin: 0rem;}
+h4{ font-size: 2.8rem; margin: 0rem;}
+
+/* Header */
+
+.header{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 2rem;
+}
+.about{
+    display: flex;
+    gap: 2rem;
+}
+
+.about__item{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.calculadora{
+    margin-top: 4rem;
+    display: flex;
+    width: 80rem;
+    flex-direction: column;
+    border-radius: 10rem;
+    border: 2px, solid, black;
+}
+
+.calculadora #pantalla{
+    background-color: #000000;
+    margin: 2rem 2rem 1rem 2rem;
+    width: 95%;
+    height: 20rem;
+    border-radius: 5rem;
+    border: 3px solid rgb(255, 255, 255);
+    font-size: 2rem;
+    padding: 1rem;
+    text-align: right;
+}
+
+.botones{
+    margin-left: 12rem;
+    display: grid;
+    width: 60rem;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 2rem;
+    gap: 1rem;
+}
+
+.boton{
+    width: 8rem;
+    height: 4rem;
+    border-radius: 5rem;
+    border: 2px solid rgb(0, 0, 0);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    transition: all 0.1s ease-in-out;
+}
+
+.boton:hover{
+    filter: brightness(70%); /* Reduce el brillo un 10%, haciéndolo más oscuro */
+}
+
+.boton:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 3px rgba(0,0,0,0.2);
+}
+
+.boton img{
+    margin-top: 4px;
+}
+
+.important{
+    background-color: rgb(255, 230, 0);
+}
+
+.operacion{
+    background-color: rgb(246, 239, 188);
+}
+.inicio__item h2, .about__item h2{
+    color: white;
+}
