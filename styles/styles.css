@@ -72,6 +72,9 @@ h4{ font-size: 2.8rem; margin: 0rem;}
     flex-direction: column;
     border-radius: 10rem;
     border: 2px, solid, black;
+    box-shadow: 0 8px 12px rgba(0,0,0,0.3);
+    background-color: #121c31;
+
 }
 
 .calculadora #pantalla{
@@ -108,6 +111,18 @@ h4{ font-size: 2.8rem; margin: 0rem;}
     border: 2px solid rgb(0, 0, 0);
     box-shadow: 0 4px 6px rgba(0,0,0,0.3);
     transition: all 0.1s ease-in-out;
+}
+
+.botones .operacion{
+    font-weight: bold;
+    font-size: 2rem;
+
+}
+
+.botones #multiplicar{
+    font-size: 3rem;
+    font-weight: bold;
+    padding-top: 8px;
 }
 
 
