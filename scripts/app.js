@@ -1,34 +1,69 @@
+const pantalla = document.getElementById('pantalla'); //Se toma el input que se destino como pantalla en el html por su id y se almacena en una variable
+const botones = document.querySelectorAll(".boton") //Se toma todos los botones de la calculadora por su clase y se almacena en una variable, este se comportara como un array
 
-const pantalla = document.getElementById('pantalla'); //Triago el input que destine como pantalla
-const botones = document.querySelectorAll(".boton") //Guardo en una variable cada boton
-let bloqueado = false; //Variable para bloquear el input si hay un error en la sintaxis
+let bloqueado = false; //Variable auxiliar que se usa para bloquear el input si hay un error en la sintaxis
 
-
-//Recorro todos los botones con el foreach y agrego un evento al dar click, el cual es tomar el valor del boton y mostrarlo en la pantalla, concatenando lo que doy click
-botones.forEach(element => { 
+//Logica principal, con el foreach se esta recorriendo todos los botones de la calculadora y agregando un evento click a cada uno de ellos
+botones.forEach(element => {
     element.addEventListener('click', function(event) {
-        if (bloqueado) return; //Si el input esta bloqueado, no hace nada
 
-        const valor = event.target.textContent
-        if (valor === 'AC') {
-            pantalla.value = '';
-        }else if (valor === '⌫') {
-            pantalla.value = pantalla.value.slice(0,-1)
-        }else if (valor === '=') {
-            try {
-                pantalla.value = eval(pantalla.value); //Evalua la expresion que se encuentra en la pantalla
-            } catch (error) {
+        const valor = event.target.textContent;
+        if (bloqueado) return; //Si bloqueado es true, no se ejecuta el resto del codigo, entonces no se puede escribir nada en la pantalla si hubo un error de sintaxis previamente
 
-                bloqueado = true; //Bloquea el input para que no se pueda seguir escribiendo si hay un error
-                pantalla.value = 'Sintax error'; //Si hay un error, muestra "Error" en la pantalla
-                setTimeout(() => {
-                    pantalla.value = '';
-                    bloqueado = false;
-                }, 1500); //Limpia la pantalla despues de 1.5 segundos
-            }
-        }else{
-            pantalla.value += valor;
+        switch (valor) { 
+            case 'AC': //Boton de limpiar todo
+                pantalla.value = '';
+                actualizarEstadoIgual(); //Funcion que deshabilita el boton igual si la pantalla esta vacia
+                break;
+            case '⌫': //Boton de borrar un caracter
+                pantalla.value = pantalla.value.slice(0, -1); //Elimina el ultimo caracter de la pantalla
+                actualizarEstadoIgual();
+                break;
+            case '=': //Boton de igual, se usa un try catch para manejar errores de sintaxis
+                try { 
+                    let resultado = eval(pantalla.value); //Evalua la expresion que hay en la pantalla, eval es una funcion de JavaScript que evalua una cadena de texto como si fuera codigo JavaScript y puede hacer operaciones matematicas básicas
+
+                    if (resultado === Infinity || resultado === -Infinity || isNaN(resultado)) { //Si el resultado es infinito o NaN, se muestra un mensaje de error, esto puede pasar si se intenta dividir por cero o si la expresion es incorrecta
+                        bloqueado = true; //Bloquea la pantalla para evitar que se sigan ingresando datos
+                        pantalla.value = 'Indefinido'; //Muestra un mensaje de error en la pantalla
+
+                        setTimeout(() => { //SetTimeout sirve para ejecutar un bloque de código después de un cierto tiempo de espera, medido en milisegundos, esn este casd deja el mensaje de error por 1.5 segundos y luego lo borra
+                            pantalla.value = '';
+                            bloqueado = false; //Vuelve a permitir que se ingresen datos en la pantalla
+                        }, 1500);
+                    } else {
+                        if (!Number.isInteger(resultado)) { //Si el resultado es un numero decimal, se redondea a 3 decimales
+                            resultado = resultado.toFixed(3);
+                        }
+                        pantalla.value = resultado; //Si el resultado es valido, lo muestra en la pantalla
+                    }
+
+                } catch (error) { //Si hay un error de sintaxis, se captura y se muestra un mensaje de error
+                    bloqueado = true;
+                    pantalla.value = 'Sintax error';
+
+                    setTimeout(() => { //Como se uso anteriormente, se muestra el mensaje de error por 1.5 segundos y luego lo borra
+                        pantalla.value = '';
+                        bloqueado = false;
+                        actualizarEstadoIgual(); //deshabilita el boton igual ya que la pantalla esta vacia
+                    }, 1500);
+                }
+                break;
+
+            default: //Si el boton presionado es un numero o un operador, se agrega a la pantalla
+                pantalla.value += valor;
+                actualizarEstadoIgual();
+                break;
         }
     });
 });
 
+//Funcion que actualiza el estado del boton igual, si la pantalla esta vacia lo deshabilita, si no lo habilita
+function actualizarEstadoIgual() {
+    const botonIgual = document.getElementById('igual'); //Traigo el boton igual del html por su id
+    if (pantalla.value.trim() === '') {
+        botonIgual.disabled = true; //Deshabilita el boton igual si la pantalla esta vacia  
+    } else {
+        botonIgual.disabled = false; //Habilita el boton igual si la pantalla no esta vacia
+    }
+}

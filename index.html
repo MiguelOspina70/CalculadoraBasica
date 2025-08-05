@@ -7,32 +7,32 @@
     <meta name="description" content="Aplicacion web de calculadora con operaciones basicas">
 
     <link rel="preload" href="/styles/normalize.css" as="style">
-    <link rel="stylesheet" href="/styles/normalize.css">
+    <link rel="stylesheet" href="/styles/normalize.css"> <!-- Normalize CSS, Para que se vea igual en todos los navegadores -->
 
     <link rel="preload" href="/styles/styles.css" as="style">
-    <link rel="stylesheet" href="/styles/styles.css">
+    <link rel="stylesheet" href="/styles/styles.css"> <!-- Estilos CSS -->
 </head>
 <body>
-    <header class="header contenedor">
+    <header class="header contenedor"> <!-- Header de la pagina, donde va el nombre y los links -->
         <div class="inicio">
-            <a href="" class="inicio__item">
+            <a href="index.html" class="inicio__item">
                 <h2>Calculadora básica :)</h2>
             </a>
         </div>
 
         <div class="about">
-            <a href="" class="about__item">
+            <a href="https://www.linkedin.com/in/ing-miguel-ospina" target="_blank" class="about__item">
                 <img src="/img/linkedin.png" alt="">
                 <h2>Linkedin</h2>
             </a>
-            <a href="" class="about__item">
+            <a href="https://github.com/MiguelOspina70" target="_blank" class="about__item">
                 <img src="/img/github.png" alt="">
                 <h2>GitHub</h2>
             </a>
         </div>
     </header>
 
-    <main class="calculadora contenedor">
+    <main class="calculadora contenedor"> <!-- Main de la pagina, donde va la calculadora, esta esta dividida en la seccion de pantalla y la de los botones -->
         <div class="pantalla">
             <input type="text" id="pantalla" readonly>
         </div>
@@ -61,6 +61,6 @@
         </div>
     </main>
 
-    <script src="/scripts/app.js"></script>
+    <script src="/scripts/app.js"></script> <!-- Se carga el archivo javascript con la lógica de la calculadora -->
 </body>
 </html>
