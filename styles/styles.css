@@ -98,20 +98,21 @@ h4{ font-size: 2.8rem; margin: 0rem;}
 }
 
 .boton{
-    width: 8rem; /* Ancho fijo para cada boton */
-    height: 4rem;
+    width: 10rem; /* Ancho fijo para cada boton */
+    height: 5.5rem;
     border-radius: 5rem;
     border: 2px solid rgb(0, 0, 0);
     box-shadow: 0 4px 6px rgba(0,0,0,0.3); /* Sombra para dar profundidad */
+    font-size: 4rem;
 }
 
 .botones .operacion{ /* Se hacen mas gruesa y visible la fuente de los botones de operaciones*/
     font-weight: bold;
-    font-size: 2rem;
+    font-size: 4rem;
 }
 
 .botones #multiplicar{
-    font-size: 3rem;
+    font-size: 5rem;
     font-weight: bold;
     padding-top: 8px;
 }
@@ -157,6 +158,12 @@ h4{ font-size: 2.8rem; margin: 0rem;}
         margin-left: 6rem;
         width: 50rem;
     }
+
+    .boton{
+        width: 9rem;
+        height: 6rem;
+        font-size: 2.8rem;
+    }
 }
 
 @media (max-width: 609px) { 
@@ -181,13 +188,24 @@ h4{ font-size: 2.8rem; margin: 0rem;}
         font-size: 3rem;
     }
     .botones{
-        margin-left: 4rem;
-        width: 10rem;
+        margin-top: 0rem;
+        margin-bottom: 2rem;
+        margin-left: 30px;
+        width: 1rem;
+        gap: 0.5rem;
     }
     .boton{
-        width: 6rem;
-        height: 4rem;
-        font-size: 1.5rem;
+        width: 7rem;
+        height: 5.5rem;
+        font-size: 2.5rem;
+    }
+    .botones .operacion{ /* Se hacen mas gruesa y visible la fuente de los botones de operaciones*/
+        font-size: 3rem;
+    }
+    
+    .botones #multiplicar{
+        font-size: 4rem;
+        padding-top: 12px;
     }
 }
 
@@ -225,7 +243,7 @@ h4{ font-size: 2.8rem; margin: 0rem;}
     }
     .boton{
         width: 7rem;
-        height: 7rem;
+        height: 5rem;
         font-size: 2.5rem;
     }
 }
