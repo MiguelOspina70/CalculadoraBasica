@@ -38,14 +38,3 @@ Puedes probar la calculadora aquí:
 - **JavaScript**: funcionalidad e interacción con el usuario.  
 
 ---
-
-## 📸 Capturas de pantalla
-
-*(Agrega aquí imágenes de tu proyecto)*
-
----
-
-## 🚀 Cómo usar
-1. Clona el repositorio:
-   ```bash
-   git clone https://github.com/TU_USUARIO/TU_REPOSITORIO.git
